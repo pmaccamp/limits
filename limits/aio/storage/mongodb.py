@@ -6,8 +6,6 @@ import datetime
 import time
 from typing import Any, cast
 
-from deprecated.sphinx import versionadded
-
 from limits.aio.storage.base import MovingWindowSupport, Storage
 from limits.typing import Dict, Optional, ParamSpec, Tuple, TypeVar, Union
 
@@ -15,7 +13,6 @@ P = ParamSpec("P")
 R = TypeVar("R")
 
 
-@versionadded(version="2.1")
 class MongoDBStorage(Storage, MovingWindowSupport):
     """
     Rate limit storage with MongoDB as backend.

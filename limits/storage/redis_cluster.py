@@ -2,7 +2,6 @@ import urllib
 import warnings
 from typing import cast
 
-from deprecated.sphinx import versionchanged
 from packaging.version import Version
 
 from limits.errors import ConfigurationError
@@ -10,16 +9,6 @@ from limits.storage.redis import RedisStorage
 from limits.typing import Dict, List, Optional, Tuple, Union
 
 
-@versionchanged(
-    version="2.5.0",
-    reason="""
-Cluster support was provided by the :pypi:`redis-py-cluster` library
-which has been absorbed into the official :pypi:`redis` client. By
-default the :class:`redis.cluster.RedisCluster` client will be used
-however if the version of the package is lower than ``4.2.0`` the implementation
-will fallback to trying to use :class:`rediscluster.RedisCluster`.
-""",
-)
 class RedisClusterStorage(RedisStorage):
     """
     Rate limit storage with redis cluster as backend

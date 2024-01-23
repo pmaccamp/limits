@@ -1,13 +1,10 @@
 import time
 import urllib.parse
 
-from deprecated.sphinx import versionadded
-
 from limits.aio.storage.base import Storage
 from limits.typing import EmcacheClientP, Optional, Union
 
 
-@versionadded(version="2.1")
 class MemcachedStorage(Storage):
     """
     Rate limit storage with memcached as backend.

@@ -1,13 +1,10 @@
 from abc import ABC, abstractmethod
 
-from deprecated.sphinx import versionadded
-
 from limits.storage.registry import StorageRegistry
 from limits.typing import List, Optional, Tuple, Union
 from limits.util import LazyDependency
 
 
-@versionadded(version="2.1")
 class Storage(LazyDependency, metaclass=StorageRegistry):
     """
     Base class to extend when implementing an async storage backend.

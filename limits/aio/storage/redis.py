@@ -2,7 +2,6 @@ import time
 import urllib
 from typing import TYPE_CHECKING, cast
 
-from deprecated.sphinx import versionadded
 from packaging.version import Version
 
 from limits.aio.storage.base import MovingWindowSupport, Storage
@@ -141,7 +140,6 @@ class RedisInteractor:
             return False
 
 
-@versionadded(version="2.1")
 class RedisStorage(RedisInteractor, Storage, MovingWindowSupport):
     """
     Rate limit storage with redis as backend.
@@ -280,7 +278,6 @@ class RedisStorage(RedisInteractor, Storage, MovingWindowSupport):
         return cast(int, await self.lua_clear_keys.execute([prefix]))
 
 
-@versionadded(version="2.1")
 class RedisClusterStorage(RedisStorage):
     """
     Rate limit storage with redis cluster as backend
@@ -352,7 +349,6 @@ class RedisClusterStorage(RedisStorage):
         return count
 
 
-@versionadded(version="2.1")
 class RedisSentinelStorage(RedisStorage):
     """
     Rate limit storage with redis sentinel as backend

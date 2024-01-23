@@ -2,8 +2,6 @@ import asyncio
 import time
 from collections import Counter
 
-from deprecated.sphinx import versionadded
-
 import limits.typing
 from limits.aio.storage.base import MovingWindowSupport, Storage
 from limits.typing import Dict, List, Optional, Tuple
@@ -16,7 +14,6 @@ class LockableEntry(asyncio.Lock):
         super().__init__()
 
 
-@versionadded(version="2.1")
 class MemoryStorage(Storage, MovingWindowSupport):
     """
     rate limit storage using :class:`collections.Counter`

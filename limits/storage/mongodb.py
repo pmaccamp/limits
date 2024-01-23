@@ -5,17 +5,13 @@ import datetime
 import time
 from typing import TYPE_CHECKING, Any
 
-from deprecated.sphinx import versionadded
-
 from limits.typing import Dict, Optional, Tuple, Union
-
 from .base import MovingWindowSupport, Storage
 
 if TYPE_CHECKING:
     import pymongo
 
 
-@versionadded(version="2.1")
 class MongoDBStorage(Storage, MovingWindowSupport):
     """
     Rate limit storage with MongoDB as backend.
